@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membresías - GymFlow</title>
+  <link rel="stylesheet" href="MembresiasStyles.css">
+
+  <!-- Font Awesome (para íconos del menú) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Botón menú móvil -->
+  <button class="mobile-menu-btn" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <h1>GymFlow</h1>
+        <p>Sistema de Gestión</p>
+      </div>
+      
+      <nav class="nav-menu">
+        <a href="#" class="nav-item">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-users"></i> Clientes
+        </a>
+        <a href="#" class="nav-item active">
+          <i class="fas fa-id-card"></i> Membresías
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-credit-card"></i> Pagos
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-bullhorn"></i> Publicidad
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-shopping-cart"></i> Productos
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-chart-bar"></i> Reportes
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-cog"></i> Configuración
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+      
+      <!-- Encabezado -->
+      <header class="header">
+        <h1>Planes de Membresía</h1>
+        <p>Elige el plan que mejor se adapte a tus objetivos en el gimnasio</p>
+      </header>
+
+      <!-- Grid de membresías -->
+      <section class="membership-grid">
+        
+        <!-- Plan Básico -->
+        <div class="membership-card basico">
+          <h2>Plan Básico</h2>
+          <p class="precio">S/ 99 / mes</p>
+          <ul>
+            <li>Acceso ilimitado al gimnasio</li>
+            <li>Asesoría inicial</li>
+            <li>Horarios libres</li>
+          </ul>
+          <button>Elegir Plan</button>
+        </div>
+
+        <!-- Plan Intermedio -->
+        <div class="membership-card intermedio">
+          <h2>Plan Intermedio</h2>
+          <p class="precio">S/ 149 / mes</p>
+          <ul>
+            <li>Todo lo del Plan Básico</li>
+            <li>Clases grupales incluidas</li>
+            <li>Rutina personalizada</li>
+          </ul>
+          <button>Elegir Plan</button>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="membership-card premium">
+          <h2>Plan Premium</h2>
+          <p class="precio">S/ 199 / mes</p>
+          <ul>
+            <li>Todo lo del Plan Intermedio</li>
+            <li>Nutricionista incluido</li>
+            <li>Acceso a zona VIP</li>
+          </ul>
+          <button>Elegir Plan</button>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Script -->
+  <script src="LoginScript.js"></script>
+</body>
+</html>
