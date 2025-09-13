@@ -333,3 +333,60 @@ body {
     }
     
     .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions-section {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 15px;
+    }
+    
+    .header {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .actions-section {
+        padding: 25px 15px;
+    }
+    
+    .actions-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .action-card {
+        padding: 25px 20px;
+    }
+    
+    .action-title {
+        font-size: 1.1rem;
+    }
+    
+    .action-description {
+        font-size: 0.9rem;
+    }
+}
