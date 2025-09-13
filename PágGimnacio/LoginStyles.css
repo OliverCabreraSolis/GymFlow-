@@ -73,7 +73,7 @@ form button {
   border: none;
   padding: 12px;
   margin-top: 15px;
-  background: #ff6600;
+  background: #691b1b;
   color: #fff;
   border-radius: 20px;
   font-size: 1rem;
@@ -82,7 +82,7 @@ form button {
 }
 
 form button:hover {
-  background: #e65c00;
+  background: #7c1624;
 }
 
 /* LOGIN por defecto */
