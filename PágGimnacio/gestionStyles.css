@@ -21,7 +21,7 @@ body {
 /* Sidebar */
 .sidebar {
     width: 280px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #05166b 0%, #a62729 100%);
     color: white;
     position: fixed;
     height: 100vh;
@@ -89,7 +89,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     margin-bottom: 30px;
-    border-left: 5px solid #667eea;
+    border-left: 5px solid #435abd;
 }
 
 .header h1 {
@@ -224,7 +224,7 @@ body {
 
 /* Tarjetas de acciones */
 .action-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #465fce 0%, #764ba2 100%);
     color: white;
     padding: 30px;
     border-radius: 15px;
@@ -285,7 +285,7 @@ body {
     top: 20px;
     left: 20px;
     z-index: 1001;
-    background: #667eea;
+    background: #3a50b4;
     color: white;
     border: none;
     padding: 12px;
