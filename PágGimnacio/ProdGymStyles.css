@@ -1,0 +1,298 @@
+/* ====== Reset y configuración base ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f8fafc;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* ====== Layout principal ====== */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ====== Sidebar ====== */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #05166b 0%, #a62729 100%);
+  color: white;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.logo {
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fbbf24;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.nav-menu {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(255,255,255,0.1);
+  border-left-color: #fbbf24;
+  transform: translateX(5px);
+}
+
+/* ====== Contenido principal ====== */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 30px;
+}
+
+/* ====== Header ====== */
+.header {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  border-left: 5px solid #435abd;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* ====== Grid de membresías ====== */
+.membership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ====== Tarjetas de membresía ====== */
+.membership-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid;
+  position: relative;
+}
+
+.membership-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.membership-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.membership-card .precio {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e11d48;
+  margin-bottom: 15px;
+}
+
+.membership-card ul {
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+  text-align: left;
+}
+
+.membership-card li {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  color: #334155;
+}
+
+.membership-card li::before {
+  content: "✔";
+  color: #10b981;
+  margin-right: 8px;
+}
+
+/* Colores de cada plan */
+.membership-card.basico { border-top-color: #10b981; }
+.membership-card.intermedio { border-top-color: #3b82f6; }
+.membership-card.premium { border-top-color: #e11d48; }
+
+/* Botones */
+.membership-card button {
+  padding: 12px 25px;
+  background: #435abd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: bold;
+}
+
+.membership-card button:hover {
+  background: #2e3f8f;
+  transform: scale(1.05);
+}
+
+/* ====== Botón menú móvil ====== */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #435abd;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .mobile-menu-btn { display: block; }
+
+  .main-content {
+    margin-left: 0;
+    padding: 80px 20px 20px;
+  }
+
+  .header h1 { font-size: 1.8rem; }
+  .membership-card { padding: 20px; }
+  .membership-card h2 { font-size: 1.3rem; }
+  .membership-card .precio { font-size: 1.1rem; }
+}
+
+
+/* ====== Grid de productos ====== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* ====== Tarjetas de productos ====== */
+.producto-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid #74577a; /* color3 por defecto */
+  position: relative;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+/* Título y descripción */
+.producto-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #74577a; /* color3 */
+}
+
+.producto-card p {
+  font-size: 0.95rem;
+  color: #463a57; /* color2 */
+  margin-bottom: 12px;
+}
+
+/* Botón Comprar */
+.comprar-btn {
+  padding: 10px 20px;
+  background: #ad79a9; /* color4 */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s, color 0.2s;
+}
+
+.comprar-btn:hover {
+  background: #f6a9de; /* color5 */
+  color: #2b293c; /* color1 */
+  transform: scale(1.05);
+}
+
+/* Encabezado principal */
+h1 {
+  color: #463a57; /* color2 */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}

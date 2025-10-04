@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Promociones por Temporada</title>
+    <link rel="stylesheet" href="PromocionesStyles.css">
+</head>
+<body>
+
+<main class="main-content">
+    <h1>Promociones por Temporada</h1>
+
+    <form id="formPromocion" class="form-promocion">
+        <input type="text" id="titulo" placeholder="Título de la promoción" required>
+        <textarea id="descripcion" placeholder="Descripción" required></textarea>
+        <select id="temporada" required>
+            <option value="">Selecciona temporada</option>
+            <option value="Verano">Verano</option>
+            <option value="Invierno">Invierno</option>
+            <option value="Otoño">Otoño</option>
+            <option value="Primavera">Primavera</option>
+        </select>
+        <input type="number" id="descuento" placeholder="Descuento %" min="0" max="100" required>
+        <button type="submit" class="agregar-btn">Agregar Promoción</button>
+    </form>
+
+    <label for="filtroTemporada">Filtrar por temporada:</label>
+    <select id="filtroTemporada" class="filtro">
+        <option value="">Todas</option>
+        <option value="Verano">Verano</option>
+        <option value="Invierno">Invierno</option>
+        <option value="Otoño">Otoño</option>
+        <option value="Primavera">Primavera</option>
+    </select>
+
+    <div id="promocionesContainer" class="products-grid"></div>
+</main>
+
+<script src="Promociones.js"></script>
+</body>
+</html>

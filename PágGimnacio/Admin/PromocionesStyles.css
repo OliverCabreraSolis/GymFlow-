@@ -1,0 +1,104 @@
+/* ====== Reset base ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f8fafc;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ====== Formulario ====== */
+.form-promocion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-promocion input,
+.form-promocion textarea,
+.form-promocion select,
+.form-promocion button {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.form-promocion button {
+    background: #ad79a9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.form-promocion button:hover {
+    background: #f6a9de;
+    transform: scale(1.05);
+}
+
+/* ====== Contenedor de promociones (tipo grid productos) ====== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* ====== Tarjetas de promociones ====== */
+.promocion-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.promocion-card:hover {
+    transform: translateY(-3px);
+}
+
+.promocion-card h3 {
+    color: #74577a;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.promocion-card p {
+    color: #463a57;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.promocion-card .temporada {
+    font-weight: bold;
+    color: #10b981;
+    margin-bottom: 10px;
+}
+
+.promocion-card .descuento {
+    font-weight: bold;
+    color: #e11d48;
+}
+
+/* ====== Filtro ====== */
+.filtro {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}

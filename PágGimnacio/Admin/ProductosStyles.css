@@ -1,0 +1,94 @@
+/* Paleta de colores */
+.color1 { color: #2b293c; }
+.color2 { color: #463a57; }
+.color3 { color: #74577a; }
+.color4 { color: #ad79a9; }
+.color5 { color: #f6a9de; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.main-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2b293c; /* color1 */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #74577a; /* color3 */
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px;
+  font-size: 1rem;
+  background: #ad79a9; /* color4 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #f6a9de; /* color5 */
+  color: #463a57; /* color2 */
+}
+
+#productos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.producto-card {
+  background: white;
+  padding: 15px;
+  border: 2px solid #74577a; /* color3 */
+  border-radius: 5px;
+}
+
+.producto-card h3 {
+  margin: 0 0 5px 0;
+  color: #463a57; /* color2 */
+}
+
+.producto-card p {
+  margin: 3px 0;
+  color: #2b293c; /* color1 */
+}
+
+.producto-card button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #ad79a9; /* color4 */
+  color: white;
+  margin-right: 5px;
+  transition: background 0.3s;
+}
+
+.producto-card button:hover {
+  background: #f6a9de; /* color5 */
+  color: #463a57; /* color2 */
+}

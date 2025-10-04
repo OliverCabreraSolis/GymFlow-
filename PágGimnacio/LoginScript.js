@@ -14,6 +14,7 @@ showLogin.addEventListener("click", (e) => {
 });
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".login-container form");
   const registerForm = document.querySelector(".register-container form");
@@ -57,10 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Validamos usuario y contraseña
     if ((usuario === userData.email || usuario === userData.nombre) && pass === userData.pass) {
-      alert(`👋 Bienvenido ${userData.nombre}`);
-      window.location.href = "Main.html"; // Redirigir al main
+     alert(`👋 Bienvenido ${userData.nombre}`);
+
+    // Guardar usuario activo para usarlo en otras páginas
+    localStorage.setItem("clienteActivo", JSON.stringify({
+    nombre: userData.nombre,
+    email: userData.email
+     }));
+
+     window.location.href = "Main.html"; // Redirigir al main
     } else {
-      alert("❌ Usuario o contraseña incorrectos.");
-    }
+     alert("❌ Usuario o contraseña incorrectos.");
+    } 
   });
 });

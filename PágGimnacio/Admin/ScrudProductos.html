@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - GymFlow</title>
+  <link rel="stylesheet" href="ProductosStyles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <main class="main-content">
+      <h1>Gestión de Productos</h1>
+
+      <!-- Formulario para agregar productos -->
+      <form id="producto-form">
+        <input type="text" id="nombre" placeholder="Nombre del producto" required>
+        <input type="number" id="precio" placeholder="Precio" required>
+        <textarea id="descripcion" placeholder="Descripción"></textarea>
+        <button type="submit">Agregar Producto</button>
+      </form>
+
+      <!-- Contenedor de productos -->
+      <div id="productos-container">
+        <!-- Productos simulados iniciales -->
+        <div class="producto-card">
+          <h3>Proteína Whey</h3>
+          <p>Precio: S/ 120.00</p>
+          <p>Proteína en polvo sabor chocolate, 1kg.</p>
+          <button class="eliminar-btn">Eliminar</button>
+        </div>
+        <div class="producto-card">
+          <h3>Guantes de Boxeo</h3>
+          <p>Precio: S/ 80.00</p>
+          <p>Guantes profesionales para entrenamiento y sparring.</p>
+          <button class="eliminar-btn">Eliminar</button>
+        </div>
+        <div class="producto-card">
+          <h3>Botella Deportiva</h3>
+          <p>Precio: S/ 25.00</p>
+          <p>Botella de 1 litro, material resistente y libre de BPA.</p>
+          <button class="eliminar-btn">Eliminar</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="Productos.js"></script>
+</body>
+</html>
