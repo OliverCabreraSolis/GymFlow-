@@ -37,7 +37,7 @@ body {
 }
 
 .form-promocion button {
-    background: #ad79a9;
+    background: #a1646f;
     color: white;
     border: none;
     cursor: pointer;
@@ -46,7 +46,7 @@ body {
 }
 
 .form-promocion button:hover {
-    background: #f6a9de;
+    background: #fc7375;
     transform: scale(1.05);
 }
 
@@ -73,20 +73,20 @@ body {
 }
 
 .promocion-card h3 {
-    color: #74577a;
+    color: #693d4b;
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
 .promocion-card p {
-    color: #463a57;
+    color: #373a5d;
     margin-bottom: 10px;
     font-size: 0.95rem;
 }
 
 .promocion-card .temporada {
     font-weight: bold;
-    color: #10b981;
+    color: #1043b9;
     margin-bottom: 10px;
 }
 
