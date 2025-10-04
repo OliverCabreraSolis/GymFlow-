@@ -138,10 +138,39 @@ body {
   margin-bottom: 10px;
 }
 
-.texto-equipo {
-  color: var(--rojo-principal);
+.boton-unete {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+.boton-unete .texto-unete {
+    padding: 15px 30px;
+    background-color: var(--rojo-oscuro);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.boton-unete:hover .texto-unete {
+    background-color: var(--rojo-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.boton-unete:active .texto-unete {
+    transform: translateY(0);
+}
+
+.pagina-web {
+    color: #333;
+    font-size: 16px;
+    margin-top: 10px;
+}
 .pagina-web {
   font-size: 1.1rem;
   color: var(--gris-claro);
@@ -263,6 +292,21 @@ body {
 .texto-servicio .resaltado-rojo {
   color: var(--rojo-principal);
   font-weight: 700;
+}
+
+.servicio-item {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.servicio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.servicio-item:active {
+    transform: translateY(-2px);
 }
 
 /* Responsive */
