@@ -1,3 +1,4 @@
+
 const container = document.getElementById("container");
 const showRegister = document.getElementById("showRegister");
 const showLogin = document.getElementById("showLogin");
@@ -11,6 +12,7 @@ showLogin.addEventListener("click", (e) => {
   e.preventDefault();
   container.classList.remove("right-panel-active");
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".login-container form");
