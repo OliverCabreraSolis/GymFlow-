@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GymFlow - Métricas</title>
+  <link rel="stylesheet" href="metricasStyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h1>GymFlow</h1>
+        <p>Panel Administrativo</p>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#" class="nav-item"><i class="fas fa-home"></i> Principal</a>
+        <a href="#" class="nav-item"><i class="fas fa-bullhorn"></i> Publicidad</a>
+        <a href="#" class="nav-item"><i class="fas fa-box"></i> Catálogo</a>
+        <a href="#" class="nav-item"><i class="fas fa-users"></i> Clientes</a>
+        <a href="#" class="nav-item active"><i class="fas fa-chart-line"></i> Métricas</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <h2>Métricas del Gimnasio</h2>
+        <p>Resumen visual del rendimiento general</p>
+      </header>
+
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <i class="fas fa-users icon"></i>
+          <h3>Miembros Activos</h3>
+          <p class="number">532</p>
+          <span class="change positive">+8% este mes</span>
+        </div>
+
+        <div class="metric-card">
+          <i class="fas fa-user-plus icon"></i>
+          <h3>Nuevos Ingresos</h3>
+          <p class="number">47</p>
+          <span class="change positive">+12%</span>
+        </div>
+
+        <div class="metric-card">
+          <i class="fas fa-user-times icon"></i>
+          <h3>Bajas del Mes</h3>
+          <p class="number">9</p>
+          <span class="change negative">-3%</span>
+        </div>
+
+        <div class="metric-card">
+          <i class="fas fa-dumbbell icon"></i>
+          <h3>Clases Completadas</h3>
+          <p class="number">182</p>
+          <span class="change positive">+6%</span>
+        </div>
+      </section>
+
+      <section class="charts">
+        <div class="chart-card">
+          <h3>Actividad Semanal</h3>
+          <div class="chart-placeholder">[ Gráfico de barras ]</div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Crecimiento de Miembros</h3>
+          <div class="chart-placeholder">[ Gráfico de líneas ]</div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
