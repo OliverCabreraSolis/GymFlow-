@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="ProductosStyles.css">
 </head>
 <body>
+  <a href="metricas.html" class="btn-volver">Regresar a la página principal</a>
+
   <div class="dashboard">
     <main class="main-content">
       <h1>Gestión de Productos</h1>
@@ -16,31 +18,41 @@
         <input type="text" id="nombre" placeholder="Nombre del producto" required>
         <input type="number" id="precio" placeholder="Precio" required>
         <textarea id="descripcion" placeholder="Descripción"></textarea>
+
+        <!-- 🔹 Nuevo campo: tipo de producto -->
+        <select id="tipo" required>
+          <option value="">Selecciona tipo</option>
+          <option value="Suplemento">Suplemento</option>
+          <option value="Bebida">Bebida</option>
+          <option value="Accesorio">Accesorio</option>
+          <option value="Ropa">Ropa</option>
+        </select>
+
         <button type="submit">Agregar Producto</button>
       </form>
 
+      <!-- 🔹 Filtro por tipo -->
+      <label for="filtroTipo">Filtrar por tipo:</label>
+      <select id="filtroTipo">
+        <option value="">Todos</option>
+        <option value="Suplemento">Suplemento</option>
+        <option value="Bebida">Bebida</option>
+        <option value="Accesorio">Accesorio</option>
+        <option value="Ropa">Ropa</option>
+      </select>
+
       <!-- Contenedor de productos -->
       <div id="productos-container">
-        <!-- Productos simulados iniciales -->
         <div class="producto-card">
           <h3>Proteína Whey</h3>
           <p>Precio: S/ 120.00</p>
           <p>Proteína en polvo sabor chocolate, 1kg.</p>
-          <button class="eliminar-btn">Eliminar</button>
-        </div>
-        <div class="producto-card">
-          <h3>Guantes de Boxeo</h3>
-          <p>Precio: S/ 80.00</p>
-          <p>Guantes profesionales para entrenamiento y sparring.</p>
-          <button class="eliminar-btn">Eliminar</button>
-        </div>
-        <div class="producto-card">
-          <h3>Botella Deportiva</h3>
-          <p>Precio: S/ 25.00</p>
-          <p>Botella de 1 litro, material resistente y libre de BPA.</p>
+          <p><strong>Tipo:</strong> Suplemento</p>
+          <button class="editar-btn">Editar</button>
           <button class="eliminar-btn">Eliminar</button>
         </div>
       </div>
+
     </main>
   </div>
 

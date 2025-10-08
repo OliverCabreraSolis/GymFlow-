@@ -17,12 +17,30 @@ body {
   margin: auto;
 }
 
+.btn-volver {
+  display: inline-block;
+  background: #ad79a9; /* color4 */
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-volver:hover {
+  background: #f6a9de; /* color5 */
+  color: #2b293c; /* color1 */
+  transform: scale(1.05);
+}
+
 h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #2b293c; /* color1 */
 }
 
+/* ====== Formulario ====== */
 form {
   display: flex;
   flex-direction: column;
@@ -30,7 +48,9 @@ form {
   margin-bottom: 20px;
 }
 
-form input, form textarea {
+form input,
+form textarea,
+form select {
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #74577a; /* color3 */
@@ -53,6 +73,22 @@ form button:hover {
   color: #463a57; /* color2 */
 }
 
+/* ====== Filtro de tipo ====== */
+label {
+  font-weight: bold;
+  color: #463a57; /* color2 */
+}
+
+#filtroTipo {
+  margin-bottom: 20px;
+  padding: 8px;
+  border: 1px solid #74577a; /* color3 */
+  border-radius: 5px;
+  background: white;
+  font-size: 1rem;
+}
+
+/* ====== Productos ====== */
 #productos-container {
   display: flex;
   flex-direction: column;
@@ -63,7 +99,13 @@ form button:hover {
   background: white;
   padding: 15px;
   border: 2px solid #74577a; /* color3 */
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.producto-card:hover {
+  transform: translateY(-3px);
 }
 
 .producto-card h3 {
@@ -91,4 +133,16 @@ form button:hover {
 .producto-card button:hover {
   background: #f6a9de; /* color5 */
   color: #463a57; /* color2 */
+}
+
+/* ====== Etiqueta de tipo dentro del producto ====== */
+.producto-card .tipo {
+  display: inline-block;
+  margin-top: 5px;
+  background: #ad79a9; /* color4 */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
 }

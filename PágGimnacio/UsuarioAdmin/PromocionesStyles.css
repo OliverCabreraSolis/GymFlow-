@@ -1,104 +1,148 @@
 /* ====== Reset base ====== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f8fafc;
-    color: #334155;
-    line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  background: #f8fafc;
+  color: #334155;
+  line-height: 1.6;
 }
 
 .main-content {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ====== Botón volver ====== */
+.btn-volver {
+  display: inline-block;
+  background: #a1646f;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 20px;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-volver:hover {
+  background: #fc7375;
+  color: #2b293c;
+  transform: scale(1.05);
 }
 
 /* ====== Formulario ====== */
 .form-promocion {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .form-promocion input,
 .form-promocion textarea,
 .form-promocion select,
 .form-promocion button {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 .form-promocion button {
-    background: #a1646f;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
+  background: #a1646f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .form-promocion button:hover {
-    background: #fc7375;
-    transform: scale(1.05);
+  background: #fc7375;
+  transform: scale(1.05);
 }
 
-/* ====== Contenedor de promociones (tipo grid productos) ====== */
+/* ====== Contenedor de promociones ====== */
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
 /* ====== Tarjetas de promociones ====== */
 .promocion-card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.2s ease;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
 .promocion-card:hover {
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .promocion-card h3 {
-    color: #693d4b;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  color: #693d4b;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .promocion-card p {
-    color: #373a5d;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+  color: #373a5d;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
 }
 
-.promocion-card .temporada {
-    font-weight: bold;
-    color: #1043b9;
-    margin-bottom: 10px;
+.promocion-card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #a1646f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.promocion-card .descuento {
-    font-weight: bold;
-    color: #e11d48;
+.promocion-card button:hover {
+  background: #fc7375;
+  transform: scale(1.05);
 }
 
 /* ====== Filtro ====== */
 .filtro {
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* ====== Membresías con descuento ====== */
+.membresias-container {
+  margin-top: 30px;
+  background: #f0e7ff;
+  border-left: 4px solid #7b4ca0;
+  padding: 15px;
+  border-radius: 8px;
+}
+.membresias-container h4 {
+  color: #47305e;
+  margin-bottom: 10px;
+}
+.membresias-container ul {
+  list-style: none;
+  padding: 0;
+}
+.membresias-container li {
+  margin: 5px 0;
 }

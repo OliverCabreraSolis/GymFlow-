@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Promociones por Temporada</title>
-    <link rel="stylesheet" href="PromocionesStyles.css">
+  <meta charset="UTF-8">
+  <title>Promociones por Membresía</title>
+  <link rel="stylesheet" href="PromocionesStyles.css">
 </head>
 <body>
+<a href="metricas.html" class="btn-volver">Regresar a la página principal</a>
 
 <main class="main-content">
-    <h1>Promociones por Temporada</h1>
+  <h1>Promociones por Tipo de Membresía</h1>
 
-    <form id="formPromocion" class="form-promocion">
-        <input type="text" id="titulo" placeholder="Título de la promoción" required>
-        <textarea id="descripcion" placeholder="Descripción" required></textarea>
-        <select id="temporada" required>
-            <option value="">Selecciona temporada</option>
-            <option value="Verano">Verano</option>
-            <option value="Invierno">Invierno</option>
-            <option value="Otoño">Otoño</option>
-            <option value="Primavera">Primavera</option>
-        </select>
-        <input type="number" id="descuento" placeholder="Descuento %" min="0" max="100" required>
-        <button type="submit" class="agregar-btn">Agregar Promoción</button>
-    </form>
-
-    <label for="filtroTemporada">Filtrar por temporada:</label>
-    <select id="filtroTemporada" class="filtro">
-        <option value="">Todas</option>
-        <option value="Verano">Verano</option>
-        <option value="Invierno">Invierno</option>
-        <option value="Otoño">Otoño</option>
-        <option value="Primavera">Primavera</option>
+  <!-- Formulario de nueva promoción -->
+  <form id="formPromocion" class="form-promocion">
+    <input type="text" id="titulo" placeholder="Título de la promoción" required>
+    <textarea id="descripcion" placeholder="Descripción" required></textarea>
+    
+    <select id="membresia" required>
+      <option value="">Selecciona tipo de membresía</option>
+      <option value="Básica">Básica</option>
+      <option value="Intermedio">Intermedio</option>
+      <option value="Premium">Premium</option>
     </select>
 
-    <div id="promocionesContainer" class="products-grid"></div>
+    <input type="number" id="descuento" placeholder="Descuento %" min="0" max="100" required>
+    <button type="submit" class="agregar-btn">Agregar Promoción</button>
+  </form>
+
+  <!-- Filtro -->
+  <label for="filtroMembresia">Filtrar por membresía:</label>
+  <select id="filtroMembresia" class="filtro">
+    <option value="">Todas</option>
+    <option value="Básica">Básica</option>
+    <option value="Intermedio">Intermedio</option>
+    <option value="Premium">Premium</option>
+  </select>
+
+  <!-- Contenedor de promociones -->
+  <div id="promocionesContainer" class="products-grid">
+    <!-- 🔹 Ejemplo de promoción simulada -->
+    <div class="promocion-card">
+      <h3>💪 Dios Griego</h3>
+      <p class="descripcion">25% de descuento en todas las membresías Premium para alcanzar tu mejor versión este verano.</p>
+      <div class="membresia">Membresía: Premium</div>
+      <div class="descuento">Descuento: -25%</div>
+      <button class="editar-btn">Editar</button>
+      <button class="eliminar-btn">Eliminar</button>
+    </div>
+  </div>
 </main>
 
 <script src="Promociones.js"></script>

@@ -1,46 +1,69 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("producto-form");
-  const nombreInput = document.getElementById("nombre");
-  const precioInput = document.getElementById("precio");
-  const descripcionInput = document.getElementById("descripcion");
-  const productosContainer = document.getElementById("productos-container");
+const form = document.getElementById("producto-form");
+const container = document.getElementById("productos-container");
+const filtro = document.getElementById("filtroTipo");
 
-  // ---- Agregar producto ----
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+let productos = [
+  { nombre: "Proteína Whey", precio: 120, descripcion: "Proteína en polvo sabor chocolate, 1kg.", tipo: "Suplemento" }
+];
 
-    const nombre = nombreInput.value;
-    const precio = precioInput.value;
-    const descripcion = descripcionInput.value;
+// ➕ Agregar producto
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const precio = parseFloat(document.getElementById("precio").value);
+  const descripcion = document.getElementById("descripcion").value;
+  const tipo = document.getElementById("tipo").value;
 
-    if (!nombre || !precio) return alert("Completa todos los campos");
+  productos.push({ nombre, precio, descripcion, tipo });
+  form.reset();
+  renderProductos();
+});
 
-    // Crear tarjeta manualmente
+// 🎛️ Filtro
+filtro.addEventListener("change", renderProductos);
+
+// 🧱 Renderizar productos
+function renderProductos() {
+  container.innerHTML = "";
+
+  const filtrados = filtro.value
+    ? productos.filter(p => p.tipo === filtro.value)
+    : productos;
+
+  filtrados.forEach((p, index) => {
     const card = document.createElement("div");
-    card.className = "producto-card";
+    card.classList.add("producto-card");
+
     card.innerHTML = `
-      <h3>${nombre}</h3>
-      <p>Precio: S/ ${parseFloat(precio).toFixed(2)}</p>
-      <p>${descripcion}</p>
+      <h3>${p.nombre}</h3>
+      <p>Precio: S/ ${p.precio.toFixed(2)}</p>
+      <p>${p.descripcion}</p>
+      <p><strong>Tipo:</strong> ${p.tipo}</p>
+      <button class="editar-btn">Editar</button>
       <button class="eliminar-btn">Eliminar</button>
     `;
 
     // Botón eliminar
     card.querySelector(".eliminar-btn").addEventListener("click", () => {
-      card.remove();
+      productos.splice(index, 1);
+      renderProductos();
     });
 
-    // Añadir al contenedor
-    productosContainer.appendChild(card);
+    // Botón editar (solo precio y descripción)
+    card.querySelector(".editar-btn").addEventListener("click", () => {
+      const nuevoPrecio = prompt("Nuevo precio (S/):", p.precio);
+      const nuevaDescripcion = prompt("Nueva descripción:", p.descripcion);
 
-    // Limpiar formulario
-    form.reset();
-  });
-
-  // ---- Botones eliminar de productos simulados ----
-  document.querySelectorAll(".eliminar-btn").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.target.parentElement.remove();
+      if (nuevoPrecio !== null && nuevaDescripcion !== null) {
+        p.precio = parseFloat(nuevoPrecio);
+        p.descripcion = nuevaDescripcion;
+        renderProductos();
+      }
     });
+
+    container.appendChild(card);
   });
-});
+}
+
+// Inicializar
+renderProductos();
