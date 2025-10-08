@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membresías - GymFlow</title>
+    <link rel="stylesheet" href="ProdGymStyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Botón menú móvil -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <h1>GymFlow</h1>
+          <p>Tu Gimnasio Digital</p>
+        </div>
+        <nav class="nav-menu">
+          <a href="Main.html" class="nav-item active">
+            <i class="fas fa-home"></i> Principal
+          </a>
+          <a href="Adversiting.html" class="nav-item">
+            <i class="fas fa-users"></i> Publicidad
+          </a>
+          <a href="Membresias.html" class="nav-item">
+            <i class="fas fa-id-card"></i> Catalogo de membresías
+          </a>
+          <a href="Contacto.html" class="nav-item">
+            <i class="fas fa-credit-card"></i> Contacto
+          </a>
+          <a href="Gestion.html" class="nav-item">
+            <i class="fas fa-chart-bar"></i> Gestión
+          </a>
+          <a href="ProductosGym.html" class="nav-item">
+            <i class="fas fa-headset"></i> Catálogo de productos del GymFlow
+          </a>
+          <a href="Pagos.html" class="nav-item">
+            <i class="fas fa-headset"></i> Pagos
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <h1>Catálogo de Productos</h1>
+        <div id="productos-container" class="products-grid">
+          <div class="producto-card">
+            <h3>Proteína Whey</h3>
+            <p>Precio: S/ 120.00</p>
+            <p>Proteína en polvo sabor chocolate, 1kg.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card">
+            <h3>Guantes de Boxeo</h3>
+            <p>Precio: S/ 80.00</p>
+            <p>Guantes profesionales para entrenamiento y sparring.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card">
+            <h3>Botella Deportiva</h3>
+            <p>Precio: S/ 25.00</p>
+            <p>Botella de 1 litro, material resistente y libre de BPA.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
