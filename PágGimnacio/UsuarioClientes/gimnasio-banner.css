@@ -8,7 +8,6 @@
   --degradado-rojo: linear-gradient(45deg, #e31e24, #8b1117);
 }
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +21,7 @@ body {
 
 .banner {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--degradado-rojo);
   position: relative;
   display: flex;
@@ -97,28 +96,36 @@ body {
   z-index: 10;
 }
 
-/* Lado izquierdo */
+/* Lado izquierdo MEJORADO */
 .lado-izquierdo {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px;
-  background: rgba(26, 10, 10, 0.8);
+  padding: 40px 50px;
+  background: rgba(13, 5, 5, 0.95);
+}
+
+.headline {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--rojo-principal);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .titulo-principal {
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: clamp(2.5rem, 5vw, 5rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 0.95;
   color: var(--blanco);
-  margin-bottom: 40px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
 }
 
 .titulo-principal .resaltado {
   color: var(--rojo-principal);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .titulo-principal .contorno {
@@ -127,54 +134,161 @@ body {
   text-stroke: 2px var(--blanco);
 }
 
-.seccion-cta {
-  margin-top: auto;
+/* NUEVA SECCIÓN DE BENEFICIOS */
+.beneficios {
+  margin: 30px 0 40px;
 }
 
-.texto-unete {
-  font-size: 1.5rem;
-  font-weight: 700;
+.beneficio-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
   color: var(--blanco);
-  margin-bottom: 10px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 500;
 }
 
-.boton-unete {
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
+.check-icon {
+  width: 24px;
+  height: 24px;
+  background: var(--rojo-principal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-.boton-unete .texto-unete {
-    padding: 15px 30px;
-    background-color: var(--rojo-oscuro);
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0;
+/* NUEVA SECCIÓN DE PROMOCIÓN */
+.promo-badge {
+  display: inline-block;
+  background: var(--rojo-principal);
+  color: var(--blanco);
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(227, 30, 36, 0.5);
+  animation: pulse 2s infinite;
 }
 
-.boton-unete:hover .texto-unete {
-    background-color: var(--rojo-oscuro);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
-.boton-unete:active .texto-unete {
-    transform: translateY(0);
+/* SECCIÓN CTA MEJORADA */
+.seccion-cta {
+  margin-top: 20px;
 }
 
-.pagina-web {
-    color: #333;
-    font-size: 16px;
-    margin-top: 10px;
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-.pagina-web {
-  font-size: 1.1rem;
+
+.boton-principal,
+.boton-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 18px 35px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.boton-principal {
+  background: var(--rojo-principal);
+  color: var(--blanco);
+  border: 2px solid var(--rojo-principal);
+}
+
+.boton-principal:hover {
+  background: var(--rojo-oscuro);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.boton-secundario {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+}
+
+.boton-secundario:hover {
+  background: var(--blanco);
+  color: var(--rojo-principal);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.boton-principal:active,
+.boton-secundario:active {
+  transform: translateY(-1px);
+}
+
+/* CONTACTO MEJORADO */
+.info-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--gris-claro);
-  font-weight: 400;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contacto-item:hover {
+  color: var(--blanco);
+}
+
+.contacto-icon {
+  font-size: 1.3rem;
+}
+
+/* TESTIMONIO */
+.testimonio {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(227, 30, 36, 0.1);
+  border-left: 4px solid var(--rojo-principal);
+  border-radius: 8px;
+}
+
+.testimonio-texto {
+  color: var(--blanco);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.testimonio-autor {
+  color: var(--rojo-principal);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
 }
 
 /* Lado derecho */
@@ -202,6 +316,7 @@ body {
   height: 100%;
   width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
 /* Encabezado gimnasio */
@@ -225,11 +340,11 @@ body {
   letter-spacing: 1px;
 }
 
-/* Servicios */
+/* Servicios MEJORADOS */
 .servicios {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   align-items: flex-end;
   margin-top: 60px;
 }
@@ -238,52 +353,43 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
-  background: rgba(227, 30, 36, 0.1);
-  padding: 15px 25px;
-  border-radius: 30px;
-  border: 1px solid rgba(227, 30, 36, 0.3);
+  background: rgba(227, 30, 36, 0.15);
+  padding: 18px 30px;
+  border-radius: 50px;
+  border: 2px solid rgba(227, 30, 36, 0.4);
   backdrop-filter: blur(10px);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 280px;
+}
+
+.servicio-item:hover {
+  transform: translateX(-10px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(227, 30, 36, 0.4);
+  background: rgba(227, 30, 36, 0.25);
+  border-color: var(--rojo-principal);
+}
+
+.servicio-item:active {
+  transform: translateX(-5px) scale(1.02);
 }
 
 .icono-servicio {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  color: var(--blanco);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
-}
-
-.icono-servicio.ejercicio-corporal {
   background: var(--degradado-rojo);
-}
-
-.icono-servicio.ejercicio-corporal::before {
-  content: "💪";
-}
-
-.icono-servicio.artes-marciales {
-  background: var(--degradado-rojo);
-}
-
-.icono-servicio.artes-marciales::before {
-  content: "🥋";
-}
-
-.icono-servicio.danzas-aerobicas {
-  background: var(--degradado-rojo);
-}
-
-.icono-servicio.danzas-aerobicas::before {
-  content: "🧘";
+  box-shadow: 0 4px 10px rgba(227, 30, 36, 0.3);
 }
 
 .texto-servicio {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   font-weight: 600;
   color: var(--blanco);
   white-space: nowrap;
@@ -294,22 +400,17 @@ body {
   font-weight: 700;
 }
 
-.servicio-item {
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.servicio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.servicio-item:active {
-    transform: translateY(-2px);
-}
-
 /* Responsive */
+@media (max-width: 1024px) {
+  .lado-izquierdo, .lado-derecho {
+    padding: 50px 40px;
+  }
+  
+  .beneficios {
+    margin: 25px 0 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .contenido {
     flex-direction: column;
@@ -319,50 +420,80 @@ body {
     position: relative;
     left: auto;
     transform: none;
-    height: 300px;
+    height: 350px;
     order: 2;
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
   }
   
   .hombre-gym {
     height: 100%;
-    max-height: 250px;
+    max-height: 300px;
   }
   
   .lado-izquierdo {
     order: 1;
     z-index: 10;
+    padding: 40px 25px;
   }
   
   .lado-derecho {
     order: 3;
     z-index: 10;
+    padding: 40px 25px;
   }
   
-  .lado-izquierdo, .lado-derecho {
-    padding: 40px 30px;
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .boton-principal,
+  .boton-secundario {
+    width: 100%;
+    justify-content: center;
   }
   
   .servicios {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    align-items: center;
     margin-top: 30px;
   }
   
   .servicio-item {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 15px;
+    width: 100%;
+    max-width: 350px;
   }
   
-  .texto-servicio {
-    font-size: 1rem;
+  .servicio-item:hover {
+    transform: translateY(-5px) scale(1.02);
   }
   
   .encabezado-gimnasio {
     text-align: center;
     margin-bottom: 20px;
+  }
+  
+  .testimonio {
+    margin-top: 25px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lado-izquierdo, .lado-derecho {
+    padding: 30px 20px;
+  }
+  
+  .promo-badge {
+    padding: 10px 20px;
+  }
+  
+  .beneficio-item {
+    font-size: 0.95rem;
+  }
+  
+  .servicio-item {
+    padding: 15px 20px;
+    min-width: auto;
   }
 }
