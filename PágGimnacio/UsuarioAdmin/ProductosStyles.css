@@ -146,3 +146,24 @@ label {
   font-size: 0.85rem;
   font-weight: bold;
 }
+
+/* clase que oculta elementos (importante) */
+.oculto {
+  display: none !important;
+}
+
+/* estilos básicos (si ya tienes, solo añade .oculto) */
+.producto-card .botones button {
+  margin-right: 6px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.editar-btn { background:#3498db; color:#fff; }
+.eliminar-btn { background:#e74c3c; color:#fff; }
+.guardar-btn { background:#27ae60; color:#fff; }
+.cancelar-btn { background:#7f8c8d; color:#fff; }
+
+/* estilo inputs edición */
+.edit-input { width:100%; box-sizing:border-box; margin-top:6px; padding:6px; }

@@ -3,58 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos - GymFlow</title>
+  <title>Gestión de Productos - GymFlow</title>
   <link rel="stylesheet" href="ProductosStyles.css">
 </head>
 <body>
   <a href="metricas.html" class="btn-volver">Regresar a la página principal</a>
 
-  <div class="dashboard">
-    <main class="main-content">
-      <h1>Gestión de Productos</h1>
+  <main class="main-content">
+    <h1>Gestión de Productos</h1>
 
-      <!-- Formulario para agregar productos -->
-      <form id="producto-form">
-        <input type="text" id="nombre" placeholder="Nombre del producto" required>
-        <input type="number" id="precio" placeholder="Precio" required>
-        <textarea id="descripcion" placeholder="Descripción"></textarea>
+    <!-- 🧾 Formulario para agregar producto -->
+    <form id="producto-form" class="form-producto">
+      <input type="text" id="nombre" placeholder="Nombre del producto" required>
+      <input type="number" id="precio" placeholder="Precio" required>
+      <textarea id="descripcion" placeholder="Descripción" required></textarea>
 
-        <!-- 🔹 Nuevo campo: tipo de producto -->
-        <select id="tipo" required>
-          <option value="">Selecciona tipo</option>
-          <option value="Suplemento">Suplemento</option>
-          <option value="Bebida">Bebida</option>
-          <option value="Accesorio">Accesorio</option>
-          <option value="Ropa">Ropa</option>
-        </select>
-
-        <button type="submit">Agregar Producto</button>
-      </form>
-
-      <!-- 🔹 Filtro por tipo -->
-      <label for="filtroTipo">Filtrar por tipo:</label>
-      <select id="filtroTipo">
-        <option value="">Todos</option>
+      <select id="tipo" required>
+        <option value="">Selecciona tipo</option>
         <option value="Suplemento">Suplemento</option>
         <option value="Bebida">Bebida</option>
         <option value="Accesorio">Accesorio</option>
         <option value="Ropa">Ropa</option>
       </select>
 
-      <!-- Contenedor de productos -->
-      <div id="productos-container">
-        <div class="producto-card">
-          <h3>Proteína Whey</h3>
-          <p>Precio: S/ 120.00</p>
-          <p>Proteína en polvo sabor chocolate, 1kg.</p>
-          <p><strong>Tipo:</strong> Suplemento</p>
+      <button type="submit">Agregar Producto</button>
+    </form>
+
+    <!-- 🎛️ Filtro -->
+    <label for="filtroTipo">Filtrar por tipo:</label>
+    <select id="filtroTipo">
+      <option value="">Todos</option>
+      <option value="Suplemento">Suplemento</option>
+      <option value="Bebida">Bebida</option>
+      <option value="Accesorio">Accesorio</option>
+      <option value="Ropa">Ropa</option>
+    </select>
+
+    <!-- 📦 Contenedor -->
+    <div id="productos-container" class="productos-grid"></div>
+
+    <!-- 🧩 Plantilla de producto -->
+    <template id="producto-template">
+      <div class="producto-card">
+        <h3 class="nombre"></h3>
+        <p><strong>Tipo:</strong> <span class="tipo"></span></p>
+        <p><strong>Precio:</strong> S/ <span class="precio"></span></p>
+        <p><strong>Descripción:</strong> <span class="descripcion"></span></p>
+
+        <div class="botones">
           <button class="editar-btn">Editar</button>
+          <button class="guardar-btn oculto">Guardar</button>
+          <button class="cancelar-btn oculto">Cancelar</button>
           <button class="eliminar-btn">Eliminar</button>
         </div>
       </div>
+    </template>
 
-    </main>
-  </div>
+  </main>
 
   <script src="Productos.js"></script>
 </body>
