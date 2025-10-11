@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Tipos de Productos - GymFlow</title>
+  <link rel="stylesheet" href="TiposProductosStyles.css">
+</head>
+<body>
+  <a href="metricas.html" class="btn-volver">Regresar a la página principal</a>
+
+  <main class="main-content">
+    <h1>Gestión de Tipos de Productos</h1>
+
+    <!-- 🧾 Formulario -->
+    <form id="tipo-form" class="form-tipo">
+      <input type="text" id="nombreTipo" placeholder="Nombre del tipo" required>
+      <textarea id="descripcionTipo" placeholder="Descripción del tipo" required></textarea>
+      <button type="submit" class="agregar-btn">Agregar Tipo</button>
+    </form>
+
+    <!-- 📦 Contenedor -->
+    <div id="tipos-container" class="tipos-grid"></div>
+
+    <!-- 🧩 Plantilla -->
+    <template id="tipo-template">
+      <div class="tipo-card">
+        <h3 class="nombre-tipo"></h3>
+        <p class="descripcion-tipo"></p>
+        <div class="botones">
+          <button class="editar-btn">Editar</button>
+          <button class="guardar-btn">Guardar</button>
+          <button class="cancelar-btn">Cancelar</button>
+          <button class="eliminar-btn">Eliminar</button>
+        </div>
+      </div>
+    </template>
+  </main>
+
+  <script src="TiposProductos.js"></script>
+</body>
+</html>
