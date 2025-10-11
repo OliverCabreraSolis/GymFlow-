@@ -14,24 +14,26 @@
     <!-- Formulario para agregar membresía -->
     <form id="formMembresia" class="form-promocion">
       <input type="text" id="nombre" placeholder="Nombre de la membresía" required>
-      <select id="tipo" required>
-        <option value="">Selecciona tipo</option>
-        <option value="Básica">Básica</option>
-        <option value="Intermedia">Intermedia</option>
-        <option value="Premium">Premium</option>
+      <select id="duracion" required>
+        <option value="">Selecciona duración</option>
+        <option value="1 mes">1 mes</option>
+        <option value="3 meses">3 meses</option>
+        <option value="6 meses">6 meses</option>
+        <option value="1 año">1 año</option>
       </select>
       <input type="number" id="precio" placeholder="Precio (S/.)" min="0" required>
       <textarea id="descripcion" placeholder="Descripción de la membresía" required></textarea>
       <button type="submit" class="agregar-btn">Agregar Membresía</button>
     </form>
 
-    <!-- Filtro por tipo -->
-    <label for="filtroTipo">Filtrar por tipo:</label>
-    <select id="filtroTipo" class="filtro">
+    <!-- Filtro por duración -->
+    <label for="filtroDuracion">Filtrar por duración:</label>
+    <select id="filtroDuracion" class="filtro">
       <option value="">Todas</option>
-      <option value="Básica">Básica</option>
-      <option value="Intermedia">Intermedia</option>
-      <option value="Premium">Premium</option>
+      <option value="1 mes">1 mes</option>
+      <option value="3 meses">3 meses</option>
+      <option value="6 meses">6 meses</option>
+      <option value="1 año">1 año</option>
     </select>
 
     <!-- Contenedor de membresías -->
@@ -41,7 +43,7 @@
     <template id="membresia-template">
       <div class="membresia-card">
         <h3 class="nombre"></h3>
-        <p><strong>Tipo:</strong> <span class="tipo"></span></p>
+        <p><strong>Duración:</strong> <span class="duracion"></span></p>
         <p><strong>Precio:</strong> S/. <span class="precio"></span></p>
         <p class="descripcion"><strong>Descripción:</strong> <span class="texto-descripcion"></span></p>
         <div class="botones">

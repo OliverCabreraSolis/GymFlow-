@@ -1,15 +1,16 @@
 const form = document.getElementById("formMembresia");
 const container = document.getElementById("membresiasContainer");
-const filtro = document.getElementById("filtroTipo");
+const filtro = document.getElementById("filtroDuracion");
 const template = document.getElementById("membresia-template").content;
 
 let membresias = [
-  { nombre: "Plan Básico", tipo: "Básica", precio: 50, descripcion: "Acceso a máquinas y área de cardio." },
-  { nombre: "Plan Intermedio", tipo: "Intermedia", precio: 80, descripcion: "Incluye clases grupales y asesoría técnica." },
-  { nombre: "Plan Élite", tipo: "Premium", precio: 120, descripcion: "Acceso total con entrenador personal y sauna." }
+  { nombre: "Plan Mensual", duracion: "1 mes", precio: 50, descripcion: "Acceso básico por un mes." },
+  { nombre: "Plan Trimestral", duracion: "3 meses", precio: 130, descripcion: "Ideal para compromisos a corto plazo." },
+  { nombre: "Plan Semestral", duracion: "6 meses", precio: 240, descripcion: "Ahorra más al pagar por seis meses." },
+  { nombre: "Plan Anual", duracion: "1 año", precio: 400, descripcion: "Acceso completo durante todo el año." }
 ];
 
-// Guardar datos
+// Guardar y cargar
 function guardarMembresias() {
   localStorage.setItem("membresiasGym", JSON.stringify(membresias));
 }
@@ -18,18 +19,18 @@ function cargarMembresias() {
   if (data) membresias = JSON.parse(data);
 }
 
-// Renderizar
+// Renderizar membresías
 function renderMembresias() {
   container.innerHTML = "";
 
   const filtradas = filtro.value
-    ? membresias.filter(m => m.tipo === filtro.value)
+    ? membresias.filter(m => m.duracion === filtro.value)
     : membresias;
 
   filtradas.forEach((m, index) => {
     const card = template.cloneNode(true);
     const nombreEl = card.querySelector(".nombre");
-    const tipoEl = card.querySelector(".tipo");
+    const duracionEl = card.querySelector(".duracion");
     const precioEl = card.querySelector(".precio");
     const descEl = card.querySelector(".texto-descripcion");
 
@@ -39,7 +40,7 @@ function renderMembresias() {
     const eliminarBtn = card.querySelector(".eliminar-btn");
 
     nombreEl.textContent = m.nombre;
-    tipoEl.textContent = m.tipo;
+    duracionEl.textContent = m.duracion;
     precioEl.textContent = m.precio;
     descEl.textContent = m.descripcion;
 
@@ -57,7 +58,7 @@ function renderMembresias() {
       guardarBtn.classList.remove("oculto");
       cancelarBtn.classList.remove("oculto");
 
-      // Cambiar a modo edición
+      // Inputs de edición
       const inputPrecio = document.createElement("input");
       inputPrecio.type = "number";
       inputPrecio.value = m.precio;
@@ -74,31 +75,28 @@ function renderMembresias() {
       guardarBtn.addEventListener("click", () => {
         m.precio = parseFloat(inputPrecio.value);
         m.descripcion = inputDesc.value;
-
         guardarMembresias();
         renderMembresias();
       });
 
-      // Cancelar edición
-      cancelarBtn.addEventListener("click", () => {
-        renderMembresias();
-      });
+      // Cancelar
+      cancelarBtn.addEventListener("click", renderMembresias);
     });
 
     container.appendChild(card);
   });
 }
 
-// Agregar membresía
+// Agregar nueva membresía
 form.addEventListener("submit", e => {
   e.preventDefault();
 
   const nombre = document.getElementById("nombre").value;
-  const tipo = document.getElementById("tipo").value;
+  const duracion = document.getElementById("duracion").value;
   const precio = parseFloat(document.getElementById("precio").value);
   const descripcion = document.getElementById("descripcion").value;
 
-  membresias.push({ nombre, tipo, precio, descripcion });
+  membresias.push({ nombre, duracion, precio, descripcion });
   guardarMembresias();
   form.reset();
   renderMembresias();
