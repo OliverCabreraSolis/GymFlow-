@@ -20,11 +20,12 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 260px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: white;
-  height: 100vh;
-  position: fixed;
+    width: 250px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -34,48 +35,53 @@ body {
 }
 
 .logo h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #fbbf24;
+    color: #ff6b6b;
+    margin-bottom: 5px;
+    font-size: 1.8rem;
 }
 
 .logo p {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 0.85rem;
+    color: #a8b3cf;
 }
 
-/* Menú de navegación */
 .nav-menu {
-  padding: 20px 0;
-  display: flex;
-  flex-direction: column;
+    margin-top: 30px;
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 25px;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border-left: 4px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
-.nav-item:hover,
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-left-color: #ff6b6b;
+    color: white;
+}
+
 .nav-item.active {
-    background: rgba(255,255,255,0.1);
-    border-left-color: #fbbf24;
-    transform: translateX(5px);
+    background: rgba(255, 107, 107, 0.15);
+    border-left-color: #ff6b6b;
+    color: white;
+}
+
+.nav-item i {
+    font-size: 1.1rem;
+    width: 20px;
 }
 
 /* Contenido principal */
 .main-content {
-    flex: 1;
     margin-left: 250px;
-    padding: 30px;
-    background: #f8fafc;
+    padding: 30px 40px;
+    width: 100%;
 }
 
 /* Header del contenido */
@@ -272,22 +278,6 @@ body {
     opacity: 0.9;
     position: relative;
     z-index: 1;
-}
-
-/* Botón de menú móvil */
-.mobile-menu-btn {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-    background: #3a50b4;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
 }
 
 @media (max-width: 768px) {

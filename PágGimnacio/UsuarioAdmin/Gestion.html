@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Gestión - GymFlow</title>
+    <link rel="stylesheet" href="gestionStyles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+            <div class="logo">
+                <h1>GymFlow</h1>
+                <p>Panel Administrativo</p>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="CrudProductos.html" class="nav-item">
+                    <i class="fas fa-box"></i> CRUD Productos de GymFlow
+                </a>
+                <a href="CrudMembresias.html" class="nav-item">
+                    <i class="fas fa-tags"></i> CRUD Membresias de GymFlow
+                </a>
+                <a href="CrudTiposProductos.html" class="nav-item">
+                    <i class="fas fa-box"></i> CRUD Tipos de productos de GymFlow
+                </a>
+                <a href="metricas.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i> Métricas
+                </a>
+                <a href="Gestion.html" class="nav-item active">
+                    <i class="fa-solid fa-bars-progress"></i> Gestión
+                </a>
+            </nav>
+        </aside>
+
+      <main class="main-content">
+          <div class="stats-grid">
+            <div class="stat-card clients">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-title">Clientes Registrados</div>
+              <div class="stat-value">120</div>
+              <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i>
+                +12% este mes
+              </div>
+            </div>
+
+            <div class="stat-card memberships">
+              <div class="stat-icon">
+                <i class="fas fa-id-card"></i>
+              </div>
+              <div class="stat-title">Membresías Activas</div>
+              <div class="stat-value">80</div>
+              <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i>
+                +8% este mes
+              </div>
+            </div>
+
+            <div class="stat-card payments">
+              <div class="stat-icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="stat-title">Pagos del Mes</div>
+              <div class="stat-value">S/. 2,300</div>
+              <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i>
+                +15% este mes
+              </div>
+            </div>
+
+            <div class="stat-card expiring">
+              <div class="stat-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="stat-title">Membresías por Vencer</div>
+              <div class="stat-value">10</div>
+              <div class="stat-change negative">
+                <i class="fas fa-arrow-down"></i>
+                Próximos 7 días
+              </div>
+            </div>
+          </div>
+      </main>
+    </div>
+    <script src="navegacionAdmin.js"></script>
+  </body>
+</html>
