@@ -20,26 +20,29 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 280px;
-    background: linear-gradient(135deg, #05166b 0%, #a62729 100%);
-    color: white;
-    position: fixed;
-    height: 100vh;
-    overflow-y: auto;
-    box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-    z-index: 1000;
+  width: 250px;
+  background: linear-gradient(135deg, #05166b 0%, #a62729 100%);
+  color: white;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
 .logo {
-    padding: 30px 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+
 .logo h1 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fbbf24;
 }
 
 .logo p {
