@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Membresías - GymFlow</title>
+    <title>Productos - GymFlow</title>
     <link rel="stylesheet" href="ProdGymStyles.css" />
     <link
       rel="stylesheet"
@@ -24,14 +24,14 @@
           <p>Tu Gimnasio Digital</p>
         </div>
         <nav class="nav-menu">
-          <a href="Main.html" class="nav-item active">
+          <a href="Main.html" class="nav-item">
             <i class="fas fa-home"></i> Principal
           </a>
           <a href="Adversiting.html" class="nav-item">
             <i class="fas fa-users"></i> Publicidad
           </a>
           <a href="Membresias.html" class="nav-item">
-            <i class="fas fa-id-card"></i> Catalogo de membresías
+            <i class="fas fa-id-card"></i> Catálogo de membresías
           </a>
           <a href="Contacto.html" class="nav-item">
             <i class="fas fa-credit-card"></i> Contacto
@@ -39,8 +39,8 @@
           <a href="Gestion.html" class="nav-item">
             <i class="fas fa-chart-bar"></i> Gestión
           </a>
-          <a href="ProductosGym.html" class="nav-item">
-            <i class="fas fa-headset"></i> Catálogo de productos del GymFlow
+          <a href="ProductosGym.html" class="nav-item active">
+            <i class="fas fa-headset"></i> Catálogo de productos
           </a>
           <a href="Pagos.html" class="nav-item">
             <i class="fas fa-headset"></i> Pagos
@@ -50,29 +50,146 @@
 
       <main class="main-content">
         <h1>Catálogo de Productos</h1>
+        
+        <!-- Filtros -->
+        <div class="filter-container">
+          <button class="filter-btn active" onclick="filtrarProductos('todos')">
+            <i class="fas fa-th"></i> Todos
+          </button>
+          <button class="filter-btn" onclick="filtrarProductos('suplementos')">
+            <i class="fas fa-capsules"></i> Suplementos
+          </button>
+          <button class="filter-btn" onclick="filtrarProductos('equipamiento')">
+            <i class="fas fa-dumbbell"></i> Equipamiento
+          </button>
+          <button class="filter-btn" onclick="filtrarProductos('accesorios')">
+            <i class="fas fa-tshirt"></i> Accesorios
+          </button>
+          <button class="filter-btn" onclick="filtrarProductos('nutricion')">
+            <i class="fas fa-apple-alt"></i> Nutrición
+          </button>
+        </div>
+
         <div id="productos-container" class="products-grid">
-          <div class="producto-card">
+          <!-- Suplementos -->
+          <div class="producto-card" data-categoria="suplementos">
             <h3>Proteína Whey</h3>
             <p>Precio: S/ 120.00</p>
             <p>Proteína en polvo sabor chocolate, 1kg.</p>
             <button class="comprar-btn">Comprar</button>
           </div>
 
-          <div class="producto-card">
+          <div class="producto-card" data-categoria="suplementos">
+            <h3>Creatina Monohidrato</h3>
+            <p>Precio: S/ 85.00</p>
+            <p>Creatina pura micronizada, 300g.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="suplementos">
+            <h3>Pre-Workout</h3>
+            <p>Precio: S/ 95.00</p>
+            <p>Energía explosiva para tus entrenamientos, 30 porciones.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="suplementos">
+            <h3>BCAA 2:1:1</h3>
+            <p>Precio: S/ 75.00</p>
+            <p>Aminoácidos ramificados, 60 porciones.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <!-- Equipamiento -->
+          <div class="producto-card" data-categoria="equipamiento">
             <h3>Guantes de Boxeo</h3>
             <p>Precio: S/ 80.00</p>
             <p>Guantes profesionales para entrenamiento y sparring.</p>
             <button class="comprar-btn">Comprar</button>
           </div>
 
-          <div class="producto-card">
+          <div class="producto-card" data-categoria="equipamiento">
+            <h3>Mancuernas Ajustables</h3>
+            <p>Precio: S/ 250.00</p>
+            <p>Set de mancuernas de 2.5kg a 25kg por lado.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="equipamiento">
+            <h3>Banda Elástica Set</h3>
+            <p>Precio: S/ 45.00</p>
+            <p>Set de 5 bandas con diferentes resistencias.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="equipamiento">
+            <h3>Colchoneta Yoga</h3>
+            <p>Precio: S/ 60.00</p>
+            <p>Colchoneta antideslizante de 6mm de grosor.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <!-- Accesorios -->
+          <div class="producto-card" data-categoria="accesorios">
             <h3>Botella Deportiva</h3>
             <p>Precio: S/ 25.00</p>
             <p>Botella de 1 litro, material resistente y libre de BPA.</p>
             <button class="comprar-btn">Comprar</button>
           </div>
+
+          <div class="producto-card" data-categoria="accesorios">
+            <h3>Guantes de Gimnasio</h3>
+            <p>Precio: S/ 35.00</p>
+            <p>Guantes acolchados para proteger tus manos.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="accesorios">
+            <h3>Toalla Deportiva</h3>
+            <p>Precio: S/ 30.00</p>
+            <p>Toalla de microfibra absorbente, 80x40cm.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="accesorios">
+            <h3>Cinturón de Levantamiento</h3>
+            <p>Precio: S/ 90.00</p>
+            <p>Cinturón de cuero para soporte lumbar.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <!-- Nutrición -->
+          <div class="producto-card" data-categoria="nutricion">
+            <h3>Barras Proteicas</h3>
+            <p>Precio: S/ 55.00</p>
+            <p>Caja de 12 barras, 20g de proteína cada una.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="nutricion">
+            <h3>Mantequilla de Maní</h3>
+            <p>Precio: S/ 28.00</p>
+            <p>100% natural, sin azúcar añadida, 500g.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="nutricion">
+            <h3>Avena Instantánea</h3>
+            <p>Precio: S/ 20.00</p>
+            <p>Avena en hojuelas, lista para preparar, 1kg.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
+
+          <div class="producto-card" data-categoria="nutricion">
+            <h3>Galletas Proteicas</h3>
+            <p>Precio: S/ 35.00</p>
+            <p>Paquete de 6 galletas, 15g de proteína cada una.</p>
+            <button class="comprar-btn">Comprar</button>
+          </div>
         </div>
       </main>
     </div>
+
+    <script src="ProductosGym.js"></script>
   </body>
 </html>
