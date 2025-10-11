@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Membresías</title>
+  <link rel="stylesheet" href="MembresiasStyles.css">
+</head>
+<body>
+  <a href="metricas.html" class="btn-volver">Regresar a la página principal</a>
+
+  <main class="main-content">
+    <h1>Gestión de Membresías</h1>
+
+    <!-- Formulario para agregar membresía -->
+    <form id="formMembresia" class="form-promocion">
+      <input type="text" id="nombre" placeholder="Nombre de la membresía" required>
+      <select id="tipo" required>
+        <option value="">Selecciona tipo</option>
+        <option value="Básica">Básica</option>
+        <option value="Intermedia">Intermedia</option>
+        <option value="Premium">Premium</option>
+      </select>
+      <input type="number" id="precio" placeholder="Precio (S/.)" min="0" required>
+      <textarea id="descripcion" placeholder="Descripción de la membresía" required></textarea>
+      <button type="submit" class="agregar-btn">Agregar Membresía</button>
+    </form>
+
+    <!-- Filtro por tipo -->
+    <label for="filtroTipo">Filtrar por tipo:</label>
+    <select id="filtroTipo" class="filtro">
+      <option value="">Todas</option>
+      <option value="Básica">Básica</option>
+      <option value="Intermedia">Intermedia</option>
+      <option value="Premium">Premium</option>
+    </select>
+
+    <!-- Contenedor de membresías -->
+    <div id="membresiasContainer" class="products-grid"></div>
+
+    <!-- Plantilla -->
+    <template id="membresia-template">
+      <div class="membresia-card">
+        <h3 class="nombre"></h3>
+        <p><strong>Tipo:</strong> <span class="tipo"></span></p>
+        <p><strong>Precio:</strong> S/. <span class="precio"></span></p>
+        <p class="descripcion"><strong>Descripción:</strong> <span class="texto-descripcion"></span></p>
+        <div class="botones">
+          <button class="editar-btn">Editar</button>
+          <button class="guardar-btn oculto">Guardar</button>
+          <button class="cancelar-btn oculto">Cancelar</button>
+          <button class="eliminar-btn">Eliminar</button>
+        </div>
+      </div>
+    </template>
+  </main>
+
+  <script src="Membresias.js"></script>
+</body>
+</html>

@@ -35,30 +35,52 @@ function renderProductos() {
     card.classList.add("producto-card");
 
     card.innerHTML = `
-      <h3>${p.nombre}</h3>
-      <p>Precio: S/ ${p.precio.toFixed(2)}</p>
-      <p>${p.descripcion}</p>
+      <p><strong>Nombre:</strong> ${p.nombre}</p>
+      <p><strong>Precio:</strong> S/ <span>${p.precio.toFixed(2)}</span></p>
+      <p><strong>Descripción:</strong> <span>${p.descripcion}</span></p>
       <p><strong>Tipo:</strong> ${p.tipo}</p>
       <button class="editar-btn">Editar</button>
       <button class="eliminar-btn">Eliminar</button>
     `;
 
-    // Botón eliminar
-    card.querySelector(".eliminar-btn").addEventListener("click", () => {
+    const btnEditar = card.querySelector(".editar-btn");
+    const btnEliminar = card.querySelector(".eliminar-btn");
+
+    // 🗑️ Eliminar producto
+    btnEliminar.addEventListener("click", () => {
       productos.splice(index, 1);
       renderProductos();
     });
 
-    // Botón editar (solo precio y descripción)
-    card.querySelector(".editar-btn").addEventListener("click", () => {
-      const nuevoPrecio = prompt("Nuevo precio (S/):", p.precio);
-      const nuevaDescripcion = prompt("Nueva descripción:", p.descripcion);
+    // ✏️ Editar producto dentro del mismo contenedor
+    btnEditar.addEventListener("click", () => {
+      card.innerHTML = `
+        <p><strong>Nombre:</strong> ${p.nombre}</p>
+        <p><strong>Precio:</strong> 
+          <input type="number" id="edit-precio" value="${p.precio}" min="0" step="0.01">
+        </p>
+        <p><strong>Descripción:</strong><br>
+          <textarea id="edit-descripcion">${p.descripcion}</textarea>
+        </p>
+        <p><strong>Tipo:</strong> ${p.tipo}</p>
+        <button class="guardar-btn">Guardar</button>
+        <button class="cancelar-btn">Cancelar</button>
+      `;
 
-      if (nuevoPrecio !== null && nuevaDescripcion !== null) {
-        p.precio = parseFloat(nuevoPrecio);
+      // Guardar cambios
+      card.querySelector(".guardar-btn").addEventListener("click", () => {
+        const nuevoPrecio = parseFloat(card.querySelector("#edit-precio").value);
+        const nuevaDescripcion = card.querySelector("#edit-descripcion").value;
+
+        p.precio = nuevoPrecio;
         p.descripcion = nuevaDescripcion;
         renderProductos();
-      }
+      });
+
+      // Cancelar edición
+      card.querySelector(".cancelar-btn").addEventListener("click", () => {
+        renderProductos();
+      });
     });
 
     container.appendChild(card);
