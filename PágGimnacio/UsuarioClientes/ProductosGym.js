@@ -1,9 +1,9 @@
-// ====== Función para alternar el menú lateral en dispositivos móviles ======
+//Función para alternar el menú lateral en dispositivos móviles 
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-// ====== Función para filtrar productos por categoría ======
+// Función para filtrar productos por categoría
 function filtrarProductos(categoria) {
   const productos = document.querySelectorAll('.producto-card');
   const botones = document.querySelectorAll('.filter-btn');
@@ -30,7 +30,7 @@ function filtrarProductos(categoria) {
   });
 }
 
-// ====== Funcionalidad para los botones de comprar ======
+//Funcionalidad para los botones de comprar
 document.addEventListener('DOMContentLoaded', function() {
   const botonesComprar = document.querySelectorAll('.comprar-btn');
   
