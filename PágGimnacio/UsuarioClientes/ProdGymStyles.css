@@ -154,7 +154,7 @@ body {
 }
 
 .membership-card li::before {
-  content: "✔";
+  content: "✓";
   color: #10b981;
   margin-right: 8px;
 }
@@ -197,27 +197,47 @@ body {
   z-index: 1001;
 }
 
-/* ====== Responsive ====== */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    position: fixed;
-  }
-  .sidebar.open { transform: translateX(0); }
-
-  .mobile-menu-btn { display: block; }
-
-  .main-content {
-    margin-left: 0;
-    padding: 80px 20px 20px;
-  }
-
-  .header h1 { font-size: 1.8rem; }
-  .membership-card { padding: 20px; }
-  .membership-card h2 { font-size: 1.3rem; }
-  .membership-card .precio { font-size: 1.1rem; }
+/* ====== Filtros de productos ====== */
+.filter-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
+.filter-btn {
+  padding: 12px 24px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #435abd;
+  color: white;
+  border-color: #435abd;
+}
+
+.filter-btn i {
+  font-size: 1.1rem;
+}
 
 /* ====== Grid de productos ====== */
 .products-grid {
@@ -235,7 +255,7 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   text-align: center;
   transition: all 0.3s ease;
-  border-top: 4px solid #74577a; /* color3 por defecto */
+  border-top: 4px solid #74577a;
   position: relative;
 }
 
@@ -248,19 +268,19 @@ body {
 .producto-card h3 {
   font-size: 1.3rem;
   margin-bottom: 10px;
-  color: #74577a; /* color3 */
+  color: #74577a;
 }
 
 .producto-card p {
   font-size: 0.95rem;
-  color: #463a57; /* color2 */
+  color: #463a57;
   margin-bottom: 12px;
 }
 
 /* Botón Comprar */
 .comprar-btn {
   padding: 10px 20px;
-  background: #ad79a9; /* color4 */
+  background: #ad79a9;
   color: white;
   border: none;
   border-radius: 8px;
@@ -270,20 +290,54 @@ body {
 }
 
 .comprar-btn:hover {
-  background: #f6a9de; /* color5 */
-  color: #2b293c; /* color1 */
+  background: #f6a9de;
+  color: #2b293c;
   transform: scale(1.05);
 }
 
 /* Encabezado principal */
 h1 {
-  color: #463a57; /* color2 */
+  color: #463a57;
   text-align: center;
   margin-bottom: 20px;
 }
 
 /* ====== Responsive ====== */
 @media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+  }
+  
+  .sidebar.open { 
+    transform: translateX(0); 
+  }
+
+  .mobile-menu-btn { 
+    display: block; 
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 80px 20px 20px;
+  }
+
+  .header h1 { 
+    font-size: 1.8rem; 
+  }
+  
+  .membership-card { 
+    padding: 20px; 
+  }
+  
+  .membership-card h2 { 
+    font-size: 1.3rem; 
+  }
+  
+  .membership-card .precio { 
+    font-size: 1.1rem; 
+  }
+
   .products-grid {
     grid-template-columns: 1fr;
   }
@@ -294,5 +348,15 @@ h1 {
 
   h1 {
     font-size: 1.8rem;
+  }
+
+  .filter-container {
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .filter-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 }
