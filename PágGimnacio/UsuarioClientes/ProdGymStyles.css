@@ -20,11 +20,15 @@ body {
 
 /* ====== Sidebar ====== */
 .sidebar {
-  width: 260px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  width: 250px;
+  background: linear-gradient(135deg, #05166b 0%, #a62729 100%);
   color: white;
-  height: 100vh;
   position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
 .logo {
@@ -267,28 +271,78 @@ body {
   color: #74577a;
 }
 
-.producto-card p {
+.producto-card .precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e11d48;
+  margin-bottom: 8px;
+}
+
+.producto-card .descripcion {
   font-size: 0.95rem;
   color: #463a57;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  min-height: 40px;
+}
+
+/* ====== Control de cantidad ====== */
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.btn-menos,
+.btn-mas {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.btn-menos:hover,
+.btn-mas:hover {
+  background: #cbd5e1;
+  transform: scale(1.1);
+}
+
+.btn-menos:active,
+.btn-mas:active {
+  transform: scale(0.95);
 }
 
 /* Botón Comprar */
 .comprar-btn {
-  padding: 10px 20px;
+  width: 100%;
+  padding: 12px 20px;
   background: #ad79a9;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s, transform 0.2s, color 0.2s;
+  transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
 .comprar-btn:hover {
   background: #f6a9de;
   color: #2b293c;
   transform: scale(1.05);
+}
+
+.comprar-btn:active {
+  transform: scale(0.98);
 }
 
 /* Encabezado principal */
@@ -354,5 +408,21 @@ h1 {
   .filter-btn {
     padding: 10px 16px;
     font-size: 0.9rem;
+  }
+
+  .cantidad-control {
+    gap: 8px;
+  }
+
+  .btn-menos,
+  .btn-mas {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cantidad-display {
+    min-width: 45px;
+    height: 32px;
+    font-size: 1rem;
   }
 }
