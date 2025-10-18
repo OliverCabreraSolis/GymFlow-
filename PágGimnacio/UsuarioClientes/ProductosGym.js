@@ -1,9 +1,30 @@
-//Función para alternar el menú lateral en dispositivos móviles 
+// ====== Función para alternar el menú lateral en dispositivos móviles ======
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-// Función para filtrar productos por categoría
+// ====== Función para cambiar la cantidad de productos ======
+function cambiarCantidad(boton, cambio) {
+  const card = boton.closest('.producto-card');
+  const display = card.querySelector('.cantidad-display');
+  
+  // Obtener cantidad actual
+  let cantidadActual = parseInt(display.textContent);
+  let nuevaCantidad = cantidadActual + cambio;
+  
+  // Validar que la cantidad esté entre 1 y 99
+  if (nuevaCantidad >= 1 && nuevaCantidad <= 99) {
+    display.textContent = nuevaCantidad;
+    
+    // Agregar animación al número
+    display.style.transform = 'scale(1.3)';
+    setTimeout(() => {
+      display.style.transform = 'scale(1)';
+    }, 200);
+  }
+}
+
+// ====== Función para filtrar productos por categoría ======
 function filtrarProductos(categoria) {
   const productos = document.querySelectorAll('.producto-card');
   const botones = document.querySelectorAll('.filter-btn');
@@ -30,7 +51,7 @@ function filtrarProductos(categoria) {
   });
 }
 
-//Funcionalidad para los botones de comprar
+// ====== Funcionalidad para los botones de comprar ======
 document.addEventListener('DOMContentLoaded', function() {
   const botonesComprar = document.querySelectorAll('.comprar-btn');
   
@@ -39,11 +60,33 @@ document.addEventListener('DOMContentLoaded', function() {
       // Obtener información del producto
       const card = this.closest('.producto-card');
       const nombreProducto = card.querySelector('h3').textContent;
-      const precioProducto = card.querySelectorAll('p')[0].textContent;
+      const precioTexto = card.querySelector('.precio').textContent;
+      const precioNumero = parseFloat(precioTexto.replace('S/ ', '').replace(',', ''));
       
-      // Mostrar alerta (puedes reemplazar esto con tu lógica de carrito)
-      alert('¡Producto agregado al carrito!\n\n' + nombreProducto + '\n' + precioProducto);
+      // Obtener la cantidad del display
+      const cantidadDisplay = card.querySelector('.cantidad-display');
+      const cantidad = parseInt(cantidadDisplay.textContent);
       
+      const total = (precioNumero * cantidad).toFixed(2);
+      
+      // Mostrar alerta con detalles de la compra
+      alert(
+        'Producto agregado al carrito!\n\n' + 
+        'Producto: ' + nombreProducto + '\n' + 
+        'Precio unitario: S/ ' + precioNumero.toFixed(2) + '\n' + 
+        'Cantidad: ' + cantidad + '\n' + 
+        'Total: S/ ' + total + '\n\n' +
+        'Gracias por tu compra!'
+      );
+      
+      // Resetear cantidad a 1 después de agregar al carrito
+      cantidadDisplay.textContent = 1;
+      
+      // Animación del botón al agregar al carrito
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = 'scale(1)';
+      }, 150);
     });
   });
   
