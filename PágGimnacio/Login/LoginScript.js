@@ -1,4 +1,3 @@
-
 const container = document.getElementById("container");
 const showRegister = document.getElementById("showRegister");
 const showLogin = document.getElementById("showLogin");
@@ -13,13 +12,11 @@ showLogin.addEventListener("click", (e) => {
   container.classList.remove("right-panel-active");
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".login-container form");
   const registerForm = document.querySelector(".register-container form");
 
-  // ---- REGISTRO ----
+  // ---- REGISTRO DE CLIENTE ----
   registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -28,13 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const pass = registerForm.querySelector('input[placeholder="Contraseña"]').value;
 
     if (nombre && email && pass) {
-      // Guardamos usuario en localStorage (simulación de base de datos)
-      const user = { nombre, email, pass };
+      const user = { nombre, email, pass, rol: "cliente" };
       localStorage.setItem("usuarioRegistrado", JSON.stringify(user));
 
       alert("✅ Registro exitoso. Ahora puedes iniciar sesión.");
-      
-      // Limpiamos formulario
       registerForm.reset();
     } else {
       alert("⚠️ Completa todos los campos para registrarte.");
@@ -48,27 +42,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = loginForm.querySelector('input[placeholder="Usuario"]').value;
     const pass = loginForm.querySelector('input[placeholder="Contraseña"]').value;
 
-    // Recuperamos usuario registrado
     const userData = JSON.parse(localStorage.getItem("usuarioRegistrado"));
 
-    if (!userData) {
-      alert("⚠️ No hay usuarios registrados. Regístrate primero.");
-      return;
+    // 🧠 Datos del administrador fijo
+    const admin = {
+      nombre: "Administrador",
+      email: "admin1",
+      pass: "123",
+      rol: "administrador"
+    };
+
+    let usuarioActivo = null;
+
+    if (usuario === admin.email && pass === admin.pass) {
+      usuarioActivo = admin;
+    } else if (userData && (usuario === userData.email || usuario === userData.nombre) && pass === userData.pass) {
+      usuarioActivo = userData;
     }
 
-    // Validamos usuario y contraseña
-    if ((usuario === userData.email || usuario === userData.nombre) && pass === userData.pass) {
-     alert(`👋 Bienvenido ${userData.nombre}`);
+    if (usuarioActivo) {
+      localStorage.setItem("usuarioActivo", JSON.stringify(usuarioActivo));
 
-    // Guardar usuario activo para usarlo en otras páginas
-    localStorage.setItem("clienteActivo", JSON.stringify({
-    nombre: userData.nombre,
-    email: userData.email
-     }));
+      alert(`👋 Bienvenido ${usuarioActivo.nombre}`);
 
-     window.location.href = "Main.html"; // Redirigir al main
+      // 🔀 Redirección según el rol
+      if (usuarioActivo.rol === "administrador") {
+        window.location.href = "../UsuarioAdmin/Gestion.html"; // ✅ corregido
+      } else {
+        window.location.href = "../UsuarioClientes/Main.html"; // ✅ corregido
+      }
     } else {
-     alert("❌ Usuario o contraseña incorrectos.");
-    } 
+      alert("❌ Usuario o contraseña incorrectos.");
+    }
   });
 });
