@@ -51,7 +51,7 @@ function renderProductos() {
       renderProductos();
     });
 
-    // ✏️ Editar producto dentro del mismo contenedor
+    // ✏️ Editar producto
     editarBtn.addEventListener("click", () => {
       editarBtn.classList.add("oculto");
       eliminarBtn.classList.add("oculto");
@@ -59,6 +59,16 @@ function renderProductos() {
       cancelarBtn.classList.remove("oculto");
 
       // Inputs editables
+      const inputTipo = document.createElement("select");
+      inputTipo.classList.add("edit-input");
+      ["Suplemento", "Bebida", "Accesorio", "Ropa"].forEach(op => {
+        const option = document.createElement("option");
+        option.value = op;
+        option.textContent = op;
+        if (op === p.tipo) option.selected = true;
+        inputTipo.appendChild(option);
+      });
+
       const inputPrecio = document.createElement("input");
       inputPrecio.type = "number";
       inputPrecio.value = p.precio;
@@ -68,23 +78,25 @@ function renderProductos() {
       inputDesc.value = p.descripcion;
       inputDesc.classList.add("edit-input");
 
-      // Reemplazar texto por los inputs
+      // Reemplazar texto por inputs
+      tipoEl.parentElement.replaceChild(inputTipo, tipoEl);
       precioEl.parentElement.replaceChild(inputPrecio, precioEl);
       descEl.parentElement.replaceChild(inputDesc, descEl);
 
-      // Guardar cambios
+      // 💾 Guardar cambios
       guardarBtn.addEventListener("click", () => {
+        p.tipo = inputTipo.value;
         p.precio = parseFloat(inputPrecio.value);
-        p.descripcion = inputDesc.value;
+        p.descripcion = inputDesc.value.trim();
         guardarProductos();
         renderProductos();
       });
 
-      // Cancelar edición
+      // ❌ Cancelar edición
       cancelarBtn.addEventListener("click", renderProductos);
     });
 
-    // 🔒 Asegurar que por defecto solo se muestren Editar y Eliminar
+    // Estado inicial de botones
     guardarBtn.classList.add("oculto");
     cancelarBtn.classList.add("oculto");
     editarBtn.classList.remove("oculto");
@@ -98,10 +110,10 @@ function renderProductos() {
 form.addEventListener("submit", e => {
   e.preventDefault();
 
-  const nombre = document.getElementById("nombre").value;
+  const nombre = document.getElementById("nombre").value.trim();
   const tipo = document.getElementById("tipo").value;
   const precio = parseFloat(document.getElementById("precio").value);
-  const descripcion = document.getElementById("descripcion").value;
+  const descripcion = document.getElementById("descripcion").value.trim();
 
   productos.push({ nombre, tipo, precio, descripcion });
   guardarProductos();
