@@ -40,8 +40,8 @@ body {
 .logo h1 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 5px;
   color: #fbbf24;
+  margin-bottom: 5px;
 }
 
 .logo p {
@@ -80,105 +80,11 @@ body {
   padding: 30px;
 }
 
-/* ====== Header ====== */
-.header {
-  background: white;
-  padding: 25px 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+h1 {
+  color: #463a57;
+  text-align: center;
   margin-bottom: 30px;
-  border-left: 5px solid #435abd;
-  text-align: center;
-}
-
-.header h1 {
   font-size: 2.2rem;
-  color: #1e293b;
-  margin-bottom: 10px;
-}
-
-.header p {
-  color: #64748b;
-  font-size: 1.1rem;
-}
-
-/* ====== Grid de membresías ====== */
-.membership-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-/* ====== Tarjetas de membresía ====== */
-.membership-card {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: all 0.3s ease;
-  border-top: 4px solid;
-  position: relative;
-}
-
-.membership-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
-
-.membership-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #1e293b;
-}
-
-.membership-card .precio {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #e11d48;
-  margin-bottom: 15px;
-}
-
-.membership-card ul {
-  list-style: none;
-  margin: 15px 0;
-  padding: 0;
-  text-align: left;
-}
-
-.membership-card li {
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  color: #334155;
-}
-
-.membership-card li::before {
-  content: "✓";
-  color: #10b981;
-  margin-right: 8px;
-}
-
-/* Colores de cada plan */
-.membership-card.basico { border-top-color: #10b981; }
-.membership-card.intermedio { border-top-color: #3b82f6; }
-.membership-card.premium { border-top-color: #e11d48; }
-
-/* Botones */
-.membership-card button {
-  padding: 12px 25px;
-  background: #435abd;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  font-weight: bold;
-}
-
-.membership-card button:hover {
-  background: #2e3f8f;
-  transform: scale(1.05);
 }
 
 /* ====== Botón menú móvil ====== */
@@ -244,7 +150,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
-  margin-top: 30px;
 }
 
 /* ====== Tarjetas de productos ====== */
@@ -321,6 +226,19 @@ body {
   transform: scale(0.95);
 }
 
+.cantidad-display {
+  min-width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
 /* Botón Comprar */
 .comprar-btn {
   width: 100%;
@@ -345,18 +263,37 @@ body {
   transform: scale(0.98);
 }
 
-/* Encabezado principal */
-h1 {
-  color: #463a57;
-  text-align: center;
-  margin-bottom: 20px;
+/* ====== Animaciones para notificaciones ====== */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.notificacion {
+  animation: slideIn 0.3s ease;
 }
 
 /* ====== Responsive ====== */
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
-    position: fixed;
   }
   
   .sidebar.open { 
@@ -372,20 +309,8 @@ h1 {
     padding: 80px 20px 20px;
   }
 
-  .header h1 { 
+  h1 { 
     font-size: 1.8rem; 
-  }
-  
-  .membership-card { 
-    padding: 20px; 
-  }
-  
-  .membership-card h2 { 
-    font-size: 1.3rem; 
-  }
-  
-  .membership-card .precio { 
-    font-size: 1.1rem; 
   }
 
   .products-grid {
@@ -394,10 +319,6 @@ h1 {
 
   .producto-card {
     padding: 20px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
   }
 
   .filter-container {
