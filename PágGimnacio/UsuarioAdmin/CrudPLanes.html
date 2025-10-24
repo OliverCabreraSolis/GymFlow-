@@ -2,18 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gestión de Membresías</title>
-  <link rel="stylesheet" href="MembresiasStyles.css">
+  <title>Gestión de Planes</title>
+  <link rel="stylesheet" href="ProductosStyles.css">
 </head>
 <body>
   <a href="metricas.html" class="btn-volver">Regresar a la página principal</a>
 
   <main class="main-content">
-    <h1>Gestión de Membresías</h1>
+    <h1>Gestión de Planes</h1>
 
-    <!-- Formulario para agregar membresía -->
-    <form id="formMembresia" class="form-promocion">
-      <input type="text" id="nombre" placeholder="Nombre de la membresía" required>
+    <!-- 🧾 Formulario para agregar plan -->
+    <form id="formPlan" class="form-producto">
+      <input type="text" id="nombre" placeholder="Nombre del plan" required>
       <select id="duracion" required>
         <option value="">Selecciona duración</option>
         <option value="1 mes">1 mes</option>
@@ -22,30 +22,31 @@
         <option value="1 año">1 año</option>
       </select>
       <input type="number" id="precio" placeholder="Precio (S/.)" min="0" required>
-      <textarea id="descripcion" placeholder="Descripción de la membresía" required></textarea>
-      <button type="submit" class="agregar-btn">Agregar Membresía</button>
+      <textarea id="descripcion" placeholder="Descripción del plan" required></textarea>
+      <button type="submit">Agregar Plan</button>
     </form>
 
-    <!-- Filtro por duración -->
+    <!-- 🎛️ Filtro -->
     <label for="filtroDuracion">Filtrar por duración:</label>
-    <select id="filtroDuracion" class="filtro">
-      <option value="">Todas</option>
+    <select id="filtroDuracion">
+      <option value="">Todos</option>
       <option value="1 mes">1 mes</option>
       <option value="3 meses">3 meses</option>
       <option value="6 meses">6 meses</option>
       <option value="1 año">1 año</option>
     </select>
 
-    <!-- Contenedor de membresías -->
-    <div id="membresiasContainer" class="products-grid"></div>
+    <!-- 📦 Contenedor -->
+    <div id="productos-container" class="productos-grid"></div>
 
-    <!-- Plantilla -->
-    <template id="membresia-template">
-      <div class="membresia-card">
+    <!-- 🧩 Plantilla -->
+    <template id="plan-template">
+      <div class="producto-card">
         <h3 class="nombre"></h3>
         <p><strong>Duración:</strong> <span class="duracion"></span></p>
-        <p><strong>Precio:</strong> S/. <span class="precio"></span></p>
-        <p class="descripcion"><strong>Descripción:</strong> <span class="texto-descripcion"></span></p>
+        <p><strong>Precio:</strong> S/ <span class="precio"></span></p>
+        <p><strong>Descripción:</strong> <span class="texto-descripcion"></span></p>
+
         <div class="botones">
           <button class="editar-btn">Editar</button>
           <button class="guardar-btn oculto">Guardar</button>
@@ -55,7 +56,7 @@
       </div>
     </template>
   </main>
-  <script src="navegacionAdmin.js"></script>
-  <script src="Membresias.js"></script>
+
+  <script src="Planes.js"></script>
 </body>
 </html>
