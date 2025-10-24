@@ -19,11 +19,14 @@ body {
 
 /* ====== Sidebar ====== */
 .sidebar {
-  width: 260px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  width: 250px;
+  background: linear-gradient(135deg, #05166b 0%, #a62729 100%);
   color: white;
-  height: 100vh;
   position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
 .logo {
